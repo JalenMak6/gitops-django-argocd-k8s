@@ -1,0 +1,15 @@
+## Following the GitOps practices,
+## We will put the deployment.yml and service.yml to a different repository
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-devops-svc
+  namespace: dev
+spec:
+  selector:
+    app: django-devops
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8000
+  type: LoadBalancer

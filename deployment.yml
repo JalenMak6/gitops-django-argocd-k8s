@@ -1,0 +1,24 @@
+## Following the GitOps practices,
+## We will put the deployment.yml and service.yml to a different repository
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-devops
+  namespace: dev
+  labels:
+    app: django-devops
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: django-devops
+  template:
+    metadata:
+      labels:
+        app: django-devops
+    spec:
+      containers:
+      - name: django-devops
+        image: 604969/django-devops:latest
+        ports:
+        - containerPort: 8000
