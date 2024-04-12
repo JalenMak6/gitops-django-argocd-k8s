@@ -10,6 +10,6 @@ spec:
     app: django-devops
   ports:
     - protocol: TCP
-      port: 8080
+      port: 8000
       targetPort: 8000
-  type: LoadBalancer
+  # type: LoadBalancer
